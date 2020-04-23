@@ -1,0 +1,56 @@
+{
+  "name": "jsy.tmbundle",
+  "displayName": "jsy",
+  "version": "0.0.1",
+  "description": "TextMate syntax for JSY. (See https://jsy-lang.github.io)",
+  "author": "Shane Holloway <shane.holloway@ieee.org>",
+  "license": "BSD-2-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsy-lang/jsy.tmbundle.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jsy-lang/jsy.tmbundle/issues"
+  },
+  "homepage": "https://github.com/jsy-lang/jsy.tmbundle#readme",
+  "engines": {
+    "vscode": "^1.44.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "jsy",
+        "aliases": [
+          "jsy"
+        ],
+        "extensions": [
+          ".jsy"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "jsy",
+        "scopeName": "source.jsy",
+        "path": "./Syntaxes/jsy.tmLanguage.json"
+      }
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "js-yaml": "^3.13.1",
+    "jsplist": "^0.1.3"
+  },
+  "scripts": {
+    "watch": "clear ; watchexec -e yaml -w ./code 'npm -s run build'",
+    "prebuild": "echo 'Build Syntaxes' [$(date +%R)]",
+    "build": "js-yaml code/jsy.tmLanguage.yaml > Syntaxes/jsy.tmLanguage.json",
+    "postbuild": "echo 'Build Syntaxes DONE' [$(date +%R)]",
+    "_refetch": "mkdir -p ./ref ; curl -L 'https://raw.githubusercontent.com/textmate/javascript.tmbundle/master/Syntaxes/JavaScript.plist' > ref/JavaScript.plist ",
+    "post_refetch": "npx jsplist -f json ref/JavaScript.plist | npx js-yaml > ref/js-from-textmate.yaml"
+  }
+}
