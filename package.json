@@ -1,7 +1,7 @@
 {
   "name": "jsy-ls-vscode",
   "displayName": "jsy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "TextMate syntax for JSY. (See https://jsy-lang.github.io)",
   "author": "Shane Holloway <shane.holloway@ieee.org>",
   "publisher": "jsy-lang",
@@ -55,5 +55,10 @@
     "postbuild": "echo 'Build Syntaxes DONE' [$(date +%R)]",
     "_refetch": "mkdir -p ./ref ; curl -L 'https://raw.githubusercontent.com/textmate/javascript.tmbundle/master/Syntaxes/JavaScript.plist' > ref/JavaScript.plist ",
     "post_refetch": "npx jsplist -f json ref/JavaScript.plist | npx js-yaml > ref/js-from-textmate.yaml"
+  },
+  "__metadata": {
+    "id": "1d60e1d9-ebe4-4dd6-9ef5-89f5b8fd8eb5",
+    "publisherDisplayName": "jsy-lang",
+    "publisherId": "9975e3d8-5bc1-45af-82f4-c4dffcc42408"
   }
 }

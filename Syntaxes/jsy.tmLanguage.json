@@ -807,10 +807,6 @@
           "name": "entity.name.function.js"
         },
         {
-          "match": "(?<!\\w)[\\p{L}\\p{Nl}$_][\\p{L}\\p{Nl}$\\p{Mn}\\p{Mc}\\p{Nd}\\p{Pc}\\x{200C}\\x{200D}]*(?=\\s*:)",
-          "name": "entity.name.type.attribute-name.js"
-        },
-        {
           "include": "#numbers"
         },
         {
